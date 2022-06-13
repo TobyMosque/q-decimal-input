@@ -11,7 +11,7 @@
   },
   "bugs": "https://github.com/TobyMosque/q-decimal-input/issues",
   "homepage": "",
-  "dependencies": {
+  "peerDependencies": {
     "@tobymosque/quasar-ui-q-decimal-input": "^0.0.1"
   },
   "engines": {

@@ -2,13 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          to="/"
-          icon="home"
-        />
+        <q-btn flat dense round to="/" icon="home" />
 
         <q-toolbar-title>
           quasar-ui-q-decimal-input v{{ version }}
@@ -25,15 +19,15 @@
 </template>
 
 <script>
-import { version } from 'ui' // "ui" is aliased in quasar.conf.js
+import { version } from "ui"; // "ui" is aliased in quasar.conf.js
 
 export default {
-  name: 'MyLayout',
+  name: "MyLayout",
 
-  setup () {
+  setup() {
     return {
-      version
-    }
-  }
-}
+      version,
+    };
+  },
+};
 </script>
