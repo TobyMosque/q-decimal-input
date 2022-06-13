@@ -10,49 +10,49 @@ export default boot(({ app }) => {
     prc: Ui.useDecimalIntlStore('percentage')
   }
 
-  const dcmi = {
-    np4: Ui.useDecimalInputStore('number.precision.4'),
-    brl: Ui.useDecimalInputStore('currenct.brl'),
-    usd: Ui.useDecimalInputStore('currenct.usd'),
-    jpy: Ui.useDecimalInputStore('currenct.jpy'),
-    prc: Ui.useDecimalInputStore('percentage')
-  }
+    const dcmi = {
+      np4: useDecimalInputStore('number.precision.4'),
+      brl: useDecimalInputStore('currenct.brl'),
+      usd: useDecimalInputStore('currenct.usd'),
+      jpy: useDecimalInputStore('currenct.jpy'),
+      prc: useDecimalInputStore('percentage')
+    }
   
-  intl.np4.style.value = "decimal"
-  intl.np4.language.value = "pt-BR"
-  intl.np4.precision.value = 4
+intl.np4.style.value = "decimal"
+intl.np4.language.value = "pt-BR"
+intl.np4.precision.value = 4
 
-  dcmi.np4.suffix.value = 'My Suffix'
-  dcmi.np4.outlined.value = true
+dcmi.np4.suffix.value = 'My Suffix'
+dcmi.np4.outlined.value = true
 
-  intl.prc.style.value = "percent"
-  intl.prc.precision.value = 4 // this field will be ignored
+intl.prc.style.value = "percent"
+intl.prc.precision.value = 4 // this field will be ignored
 
-  dcmi.prc.suffix.value = true
-  dcmi.prc.outlined.value = true
+dcmi.prc.suffix.value = true
+dcmi.prc.outlined.value = true
 
-  intl.brl.language.value = "pt-BR"
-  intl.brl.style.value = "currency"
-  intl.brl.currency.value = "BRL"
-  intl.brl.precision.value = 2
+intl.brl.language.value = "pt-BR"
+intl.brl.style.value = "currency"
+intl.brl.currency.value = "BRL"
+intl.brl.precision.value = 2
 
-  dcmi.brl.prefix.value = true
-  dcmi.brl.filled.value = true
+dcmi.brl.prefix.value = true
+dcmi.brl.filled.value = true
 
-  intl.usd.language.value = "en-US"
-  intl.usd.style.value = "currency"
-  intl.usd.currency.value = "USD"
-  intl.usd.precision.value = 2
+intl.usd.language.value = "en-US"
+intl.usd.style.value = "currency"
+intl.usd.currency.value = "USD"
+intl.usd.precision.value = 2
 
-  dcmi.usd.prefix.value = true
-  dcmi.usd.filled.value = true
+dcmi.usd.prefix.value = true
+dcmi.usd.filled.value = true
 
-  intl.jpy.language.value = "jp-JP"
-  intl.jpy.style.value = "currency"
-  intl.jpy.currency.value = "JPY"
-  intl.jpy.precision.value = 0
+intl.jpy.language.value = "jp-JP"
+intl.jpy.style.value = "currency"
+intl.jpy.currency.value = "JPY"
+intl.jpy.precision.value = 0
 
-  dcmi.jpy.step.value = 100
-  dcmi.jpy.prefix.value = true
-  dcmi.jpy.filled.value = true
+dcmi.jpy.step.value = 100
+dcmi.jpy.prefix.value = true
+dcmi.jpy.filled.value = true
 });

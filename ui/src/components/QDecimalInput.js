@@ -108,11 +108,11 @@ export default {
       requestAnimationFrame(() => {
         switch (keyCode) {
           case 38: 
-            emit("update:modelValue", model.value + step.value);
+            emit("update:modelValue", model.value + decimalProps.step.value);
             break
           case 40: 
-            if (self.value - self.step > 0) {
-              emit("update:modelValue", model.value - step.value);
+            if (model.value - decimalProps.step.value > 0) {
+              emit("update:modelValue", model.value - decimalProps.step.value);
             } else {
               emit("update:modelValue", 0);
             }
