@@ -1,4 +1,5 @@
 import { ToRefs } from "vue";
+import { InputProps } from '@tobymosque/quasar-ui-q-branded-components/src/stores';
 
 export interface DecimalIntlProps {
   locale: String;
@@ -7,21 +8,17 @@ export interface DecimalIntlProps {
   display: "symbol" | "code" | "name";
   places: undefined;
   precision: Number;
-  text: String;
-  formatters: {
-    currency: Intl.NumberFormat;
-    decimal: Intl.NumberFormat;
-    percent: Intl.NumberFormat;
-  };
 }
 
-export interface DecimalInputProps {
-  provide: String;
+export interface DecimalInputProps extends InputProps {
+  prefix: String | Boolean,
+  suffix: String | Boolean,
+  step: Number,
 }
 
 export type DecimalInputStore = ToRefs<DecimalInputProps>;
 export function useDecimalInputStore(): DecimalInputStore;
-export type UseDecimalProvideStore = typeof useDecimalInputStore;
+export type UseDecimalInputStore = typeof useDecimalInputStore;
 
 export interface DecimalIntlStore extends ToRefs<DecimalIntlProps> {
   label: ComputedRef<String>;
@@ -31,6 +28,7 @@ export interface DecimalIntlStore extends ToRefs<DecimalIntlProps> {
     currency: ComputedRef<Intl.NumberFormat>;
     decimal: ComputedRef<Intl.NumberFormat>;
     percent: ComputedRef<Intl.NumberFormat>;
+    precision0: ComputedRef<Intl.NumberFormat>;
   };
 }
 export function useDecimalIntlStore(context: String): DecimalIntlStore;

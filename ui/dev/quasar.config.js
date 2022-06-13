@@ -8,7 +8,7 @@ module.exports = function (ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
-    boot: ["register.js"],
+    boot: ["register.js", "brand.js"],
 
     css: ["app.sass"],
 
