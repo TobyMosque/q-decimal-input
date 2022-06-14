@@ -1,5 +1,5 @@
 import { ToRefs } from "vue";
-import { InputProps } from '@tobymosque/quasar-ui-q-branded-components/src/stores';
+import { InputProps } from "@tobymosque/quasar-ui-q-branded-components/src/stores";
 
 export interface DecimalIntlProps {
   locale: String;
@@ -11,9 +11,11 @@ export interface DecimalIntlProps {
 }
 
 export interface DecimalInputProps extends InputProps {
-  prefix: String | Boolean,
-  suffix: String | Boolean,
-  step: Number,
+  prefix: String | Boolean;
+  suffix: String | Boolean;
+  step: Number;
+  cursorOnFocus: String;
+  intl: String;
 }
 
 export type DecimalInputStore = ToRefs<DecimalInputProps>;

@@ -1,6 +1,3 @@
 import QDecimalInput, { DecimalInputProps } from "./QDecimalInput";
 
-export {
-  QDecimalInput,
-  DecimalInputProps
-};
+export { QDecimalInput, DecimalInputProps };

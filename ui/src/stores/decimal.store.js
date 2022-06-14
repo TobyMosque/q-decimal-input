@@ -8,15 +8,22 @@ const map = new Map();
 export function useDecimalInputStore(context = "default") {
   const inputState = useInputStore(context);
   if (!map.has(context)) {
-    map.set(context, toRefs(reactive({
-      suffix: false,
-      prefix: false,
-      step: 1,
-    })));
+    map.set(
+      context,
+      toRefs(
+        reactive({
+          suffix: false,
+          prefix: false,
+          step: 1,
+          cursorOnFocus: "end", // ['start', 'end', 'integer']
+          intl: "default",
+        })
+      )
+    );
   }
   const decimalState = map.get(context);
   return {
     ...inputState,
-    ...decimalState
-  }
+    ...decimalState,
+  };
 }

@@ -37,34 +37,39 @@ export function useDecimalIntlStore(context) {
 
     const formatters = {
       currency: computed(() =>
-        style.value === 'currency' ? new Intl.NumberFormat(language.value, {
-          style: style.value,
-          currency: currency.value,
-          currencyDisplay: display.value,
-          minimumFractionDigits: precision.value,
-          maximumFractionDigits: precision.value,
-        }) : undefined
+        style.value === "currency"
+          ? new Intl.NumberFormat(language.value, {
+              style: style.value,
+              currency: currency.value,
+              currencyDisplay: display.value,
+              minimumFractionDigits: precision.value,
+              maximumFractionDigits: precision.value,
+            })
+          : undefined
       ),
-      decimal: computed(() =>
-        new Intl.NumberFormat(language.value, {
-          style: 'decimal',
-          minimumFractionDigits: precision.value,
-          maximumFractionDigits: precision.value,
-        })
+      decimal: computed(
+        () =>
+          new Intl.NumberFormat(language.value, {
+            style: "decimal",
+            minimumFractionDigits: precision.value,
+            maximumFractionDigits: precision.value,
+          })
       ),
-      percent: computed(() =>
-        new Intl.NumberFormat(language.value, {
-          style: "percent",
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        })
+      percent: computed(
+        () =>
+          new Intl.NumberFormat(language.value, {
+            style: "percent",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          })
       ),
-      precision0: computed(() =>
-        new Intl.NumberFormat(language.value, {
-          style: "decimal",
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        })
+      precision0: computed(
+        () =>
+          new Intl.NumberFormat(language.value, {
+            style: "decimal",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          })
       ),
     };
     const label = computed(() => {
@@ -82,7 +87,7 @@ export function useDecimalIntlStore(context) {
       }
     });
     function format(val, label) {
-      if (!val || typeof val !== "number") {
+      if ((!val && val !== 0) || typeof val !== "number") {
         return "";
       }
       if (label) {
@@ -90,7 +95,7 @@ export function useDecimalIntlStore(context) {
           case "currency":
             return formatters.decimal.value.format(val);
           case "percent":
-            return formatters.precision0.value.format(val)
+            return formatters.precision0.value.format(val);
         }
       }
       switch (style.value) {
